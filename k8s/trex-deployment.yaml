@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trex-deployment
+  labels:
+    app: trex-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trex-deployment
+  template:
+    metadata:
+      labels:
+        app: trex-deployment
+    spec:
+      containers:
+      - name: trex-container
+        image: poonam40/trex-game
+        ports:
+        - containerPort: 8080
